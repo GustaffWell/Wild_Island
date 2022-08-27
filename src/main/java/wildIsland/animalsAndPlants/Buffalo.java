@@ -40,7 +40,7 @@ public class Buffalo extends Herbivore {
                 Thread.sleep(5 * Info.iterationTime);
             } catch (InterruptedException e) {
                 list.remove(current);
-                current.stop();
+                current.interrupt();
             }
         }
         while(!current.isInterrupted()) {
@@ -50,7 +50,7 @@ public class Buffalo extends Herbivore {
             if (age >= 15) {
                 if (random.nextInt(100) <= (1 + 0.1 * age)) {
                     list.remove(current);
-                    current.stop();
+                    current.interrupt();
                 }
             }
             if (random.nextInt(2) == 0) {
@@ -64,14 +64,14 @@ public class Buffalo extends Herbivore {
 
             if ((age > 10) && (this.hanger >= 100)) {
                 list.remove(current);
-                current.stop();
+                current.interrupt();
             }
 
             try {
                 Thread.sleep(Info.iterationTime);
             } catch (InterruptedException e) {
                 list.remove(current);
-                current.stop();
+                current.interrupt();
             }
             age++;
             if (hanger < 100) {

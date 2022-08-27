@@ -40,7 +40,7 @@ public class Rabbit extends Herbivore {
                 Thread.sleep(2 * Info.iterationTime);
             } catch (InterruptedException e) {
                 list.remove(current);
-                current.stop();
+                current.interrupt();
             }
         }
         while(!current.isInterrupted()) {
@@ -52,7 +52,7 @@ public class Rabbit extends Herbivore {
             if (age >= 5) {
                 if (random.nextInt(100) <= (1 + 0.1 * age)) {
                     list.remove(current);
-                    current.stop();
+                    current.interrupt();
                 }
             }
             if (random.nextInt(2) == 0) {
@@ -63,14 +63,14 @@ public class Rabbit extends Herbivore {
 
             if ((age > 5) && (this.hanger >= 0.45)) {
                 list.remove(current);
-                current.stop();
+                current.interrupt();
             }
 
             try {
                 Thread.sleep(Info.iterationTime);
             } catch (InterruptedException e) {
                 list.remove(current);
-                current.stop();
+                current.interrupt();
             }
             age++;
             if (hanger < 0.45) {

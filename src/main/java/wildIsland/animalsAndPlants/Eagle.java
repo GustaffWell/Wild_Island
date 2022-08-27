@@ -40,7 +40,7 @@ public class Eagle extends Predator{
                 Thread.sleep(3 * Info.iterationTime);
             } catch (InterruptedException e) {
                 list.remove(current);
-                current.stop();
+                current.interrupt();
             }
         }
         while(!current.isInterrupted()) {
@@ -50,7 +50,7 @@ public class Eagle extends Predator{
             if (age >= 6) {
                 if (random.nextInt(100) <= (1 + 0.1 * age)) {
                     list.remove(current);
-                    current.stop();
+                    current.interrupt();
                 }
             }
 
@@ -59,14 +59,14 @@ public class Eagle extends Predator{
 
             if ((age > 6) && (this.hanger >= 1)) {
                 list.remove(current);
-                current.stop();
+                current.interrupt();
             }
 
             try {
                 Thread.sleep(Info.iterationTime);
             } catch (InterruptedException e) {
                 list.remove(current);
-                current.stop();
+                current.interrupt();
             }
             age++;
             if (hanger < 1) {

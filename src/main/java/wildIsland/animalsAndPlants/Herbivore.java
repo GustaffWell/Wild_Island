@@ -15,6 +15,7 @@ public abstract class Herbivore extends Animal {
             if (this.hanger > 0 && Island.field[this.i1][this.j1].get(0).size() > 0) {
                 Thread thread = Island.field[this.i1][this.j1].get(0).get(0);
                 Island.field[this.i1][this.j1].get(0).remove(thread);
+                thread.interrupt();
                 this.hanger -= 1;
             }
         }

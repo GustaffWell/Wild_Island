@@ -36,7 +36,7 @@ public class Plant extends Organic {
                 Thread.sleep(3 * Info.iterationTime);
             } catch (InterruptedException e) {
                 plantsList.remove(current);
-                current.stop();
+                current.interrupt();
             }
         }
         while(!current.isInterrupted()) {
@@ -46,14 +46,14 @@ public class Plant extends Organic {
             if (age >= 10) {
                 if (random.nextInt(100) <= (1 + 0.1 * age)) {   // Появляющаяся с возрастом и возрастающая вероятность умереть
                     plantsList.remove(current);
-                    current.stop();
+                    current.interrupt();
                 }
             }
             try {
                 Thread.sleep(Info.iterationTime);
             } catch (InterruptedException e) {
                 plantsList.remove(current);
-                current.stop();
+                current.interrupt();
             }
             age++;
         }

@@ -40,7 +40,7 @@ public class Deer extends Herbivore {
                 Thread.sleep(4 * Info.iterationTime);
             } catch (InterruptedException e) {
                 deerList.remove(current);
-                current.stop();
+                current.interrupt();
             }
         }
         while(!current.isInterrupted()) {
@@ -50,7 +50,7 @@ public class Deer extends Herbivore {
             if (age >= 20) {
                 if (random.nextInt(1, 100) <= (1 + 0.2 * age)) {
                     deerList.remove(current);
-                    current.stop();
+                    current.interrupt();
                 }
             }
             if (random.nextInt(2) == 0) {
@@ -62,14 +62,14 @@ public class Deer extends Herbivore {
 
             if ((age > 10) && (this.hanger >= 50)) {
                 deerList.remove(current);
-                current.stop();
+                current.interrupt();
             }
 
             try {
                 Thread.sleep(Info.iterationTime);
             } catch (InterruptedException e) {
                 deerList.remove(current);
-                current.stop();
+                current.interrupt();
             }
             age++;
             if (hanger < 50) {

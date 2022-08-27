@@ -41,7 +41,7 @@ public class Horse extends Herbivore {
                 Thread.sleep(5 * Info.iterationTime);
             } catch (InterruptedException e) {
                 horsesList.remove(current);
-                current.stop();
+                current.interrupt();
             }
         }
         while(!current.isInterrupted()) {
@@ -51,7 +51,7 @@ public class Horse extends Herbivore {
             if (age >= 20) {
                 if (random.nextInt(1, 100) <= (1 + 0.1 * age)) {
                     horsesList.remove(current);
-                    current.stop();
+                    current.interrupt();
                 }
             }
             if (random.nextInt(2) == 0) {
@@ -64,14 +64,14 @@ public class Horse extends Herbivore {
 
             if ((age > 10) && (this.hanger >= 60)) {
                 horsesList.remove(current);
-                current.stop();
+                current.interrupt();
             }
 
             try {
                 Thread.sleep(Info.iterationTime);
             } catch (InterruptedException e) {
                 horsesList.remove(current);
-                current.stop();
+                current.interrupt();
             }
             age++;
             if (hanger < 60) {

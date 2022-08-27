@@ -39,7 +39,7 @@ public class Caterpillar extends Herbivore {
                 Thread.sleep(2 * Info.iterationTime);
             } catch (InterruptedException e) {
                 list.remove(current);
-                current.stop();
+                current.interrupt();
             }
         }
         while(!current.isInterrupted()) {
@@ -48,14 +48,14 @@ public class Caterpillar extends Herbivore {
             }
             if (random.nextInt(5) == (1)) {
                 list.remove(current);
-                current.stop();
+                current.interrupt();
             }
 
             try {
                 Thread.sleep(Info.iterationTime);
             } catch (InterruptedException e) {
                 list.remove(current);
-                current.stop();
+                current.interrupt();
             }
         }
     }

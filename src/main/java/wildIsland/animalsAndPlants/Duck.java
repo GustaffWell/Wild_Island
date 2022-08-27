@@ -40,7 +40,7 @@ public class Duck extends Herbivore {
                 Thread.sleep(2 * Info.iterationTime);
             } catch (InterruptedException e) {
                 list.remove(current);
-                current.stop();
+                current.interrupt();
             }
         }
         while(!current.isInterrupted()) {
@@ -50,7 +50,7 @@ public class Duck extends Herbivore {
             if (age >= 2) {
                 if (random.nextInt(100) <= (1 + 0.2 * age)) {
                     list.remove(current);
-                    current.stop();
+                    current.interrupt();
                 }
             }
             if (random.nextInt(2) == 0) {
@@ -62,14 +62,14 @@ public class Duck extends Herbivore {
 
             if ((age > 3) && (this.hanger >= 0.15)) {
                 list.remove(current);
-                current.stop();
+                current.interrupt();
             }
 
             try {
                 Thread.sleep(Info.iterationTime);
             } catch (InterruptedException e) {
                 list.remove(current);
-                current.stop();
+                current.interrupt();
             }
             age++;
             if (hanger < 0.15) {
@@ -106,6 +106,7 @@ public class Duck extends Herbivore {
                 if (this.hanger > 0 && Island.field[this.i1][this.j1].get(4).size() > 0) {
                     Thread thread = Island.field[this.i1][this.j1].get(4).get(0);
                     Island.field[this.i1][this.j1].get(4).remove(thread);
+                    thread.interrupt();
                     this.hanger -= 0.01;
                 }
             }

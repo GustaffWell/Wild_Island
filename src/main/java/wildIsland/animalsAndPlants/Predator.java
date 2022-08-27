@@ -14,6 +14,7 @@ public abstract class Predator extends Animal {
             if (this.hanger > 0 && Island.field[this.i1][this.j1].get(1).size() > 0) {
                 Thread thread = Island.field[this.i1][this.j1].get(1).get(0);
                 Island.field[this.i1][this.j1].get(1).remove(thread);
+                thread.interrupt();
 
                 if (this.hanger - 400 < 0) {
                     this.hanger = 0;
@@ -29,6 +30,7 @@ public abstract class Predator extends Animal {
             if (this.hanger > 0 && Island.field[this.i1][this.j1].get(2).size() > 0) {
                 Thread thread = Island.field[this.i1][this.j1].get(2).get(0);
                 Island.field[this.i1][this.j1].get(2).remove(thread);
+                thread.interrupt();
 
                 if (this.hanger - 300 < 0) {
                     this.hanger = 0;
@@ -44,6 +46,7 @@ public abstract class Predator extends Animal {
             if (this.hanger > 0 && Island.field[this.i1][this.j1].get(3).size() > 0) {
                 Thread thread = Island.field[this.i1][this.j1].get(3).get(0);
                 Island.field[this.i1][this.j1].get(3).remove(thread);
+                thread.interrupt();
 
                 if (this.hanger - 2 < 0) {
                     this.hanger = 0;
@@ -59,6 +62,7 @@ public abstract class Predator extends Animal {
             if (this.hanger > 0 && Island.field[this.i1][this.j1].get(4).size() > 0) {
                 Thread thread = Island.field[this.i1][this.j1].get(4).get(0);
                 Island.field[this.i1][this.j1].get(4).remove(thread);
+                thread.interrupt();
 
                 if (this.hanger - 0.01 < 0) {
                     this.hanger = 0;
@@ -74,6 +78,7 @@ public abstract class Predator extends Animal {
             if (this.hanger > 0 && Island.field[this.i1][this.j1].get(5).size() > 0) {
                 Thread thread = Island.field[this.i1][this.j1].get(5).get(0);
                 Island.field[this.i1][this.j1].get(5).remove(thread);
+                thread.interrupt();
 
                 if (this.hanger - 0.05 < 0) {
                     this.hanger = 0;
@@ -89,6 +94,7 @@ public abstract class Predator extends Animal {
             if (this.hanger > 0 && Island.field[this.i1][this.j1].get(6).size() > 0) {
                 Thread thread = Island.field[this.i1][this.j1].get(6).get(0);
                 Island.field[this.i1][this.j1].get(6).remove(thread);
+                thread.interrupt();
 
                 if (this.hanger - 60 < 0) {
                     this.hanger = 0;
@@ -104,6 +110,7 @@ public abstract class Predator extends Animal {
             if (this.hanger > 0 && Island.field[this.i1][this.j1].get(7).size() > 0) {
                 Thread thread = Island.field[this.i1][this.j1].get(7).get(0);
                 Island.field[this.i1][this.j1].get(7).remove(thread);
+                thread.interrupt();
 
                 if (this.hanger - 70 < 0) {
                     this.hanger = 0;
@@ -119,6 +126,7 @@ public abstract class Predator extends Animal {
             if (this.hanger > 0 && Island.field[this.i1][this.j1].get(8).size() > 0) {
                 Thread thread = Island.field[this.i1][this.j1].get(8).get(0);
                 Island.field[this.i1][this.j1].get(8).remove(thread);
+                thread.interrupt();
 
                 if (this.hanger - 400 < 0) {
                     this.hanger = 0;
@@ -134,6 +142,7 @@ public abstract class Predator extends Animal {
             if (this.hanger > 0 && Island.field[this.i1][this.j1].get(9).size() > 0) {
                 Thread thread = Island.field[this.i1][this.j1].get(9).get(0);
                 Island.field[this.i1][this.j1].get(9).remove(thread);
+                thread.interrupt();
 
                 if (this.hanger - 700 < 0) {
                     this.hanger = 0;
@@ -149,6 +158,7 @@ public abstract class Predator extends Animal {
             if (this.hanger > 0 && Island.field[this.i1][this.j1].get(10).size() > 0) {
                 Thread thread = Island.field[this.i1][this.j1].get(10).get(0);
                 Island.field[this.i1][this.j1].get(10).remove(thread);
+                thread.interrupt();
 
                 if (this.hanger - 1 < 0) {
                     this.hanger = 0;
@@ -164,6 +174,7 @@ public abstract class Predator extends Animal {
             if (this.hanger > 0 && Island.field[this.i1][this.j1].get(12).size() > 0) {
                 Thread thread = Island.field[this.i1][this.j1].get(12).get(0);
                 Island.field[this.i1][this.j1].get(12).remove(thread);
+                thread.interrupt();
 
                 if (this.hanger - 15 < 0) {
                     this.hanger = 0;
@@ -179,6 +190,7 @@ public abstract class Predator extends Animal {
             if (this.hanger > 0 && Island.field[this.i1][this.j1].get(13).size() > 0) {
                 Thread thread = Island.field[this.i1][this.j1].get(13).get(0);
                 Island.field[this.i1][this.j1].get(13).remove(thread);
+                thread.interrupt();
 
                 if (this.hanger - 8 < 0) {
                     this.hanger = 0;

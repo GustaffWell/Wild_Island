@@ -40,7 +40,7 @@ public class Boa extends Predator{
                 Thread.sleep(2 * Info.iterationTime);
             } catch (InterruptedException e) {
                 list.remove(current);
-                current.stop();
+                current.interrupt();
             }
         }
         while(!current.isInterrupted()) {
@@ -50,7 +50,7 @@ public class Boa extends Predator{
             if (age >= 10) {
                 if (random.nextInt(100) <= (1 + 0.01 * age)) {
                     list.remove(current);
-                    current.stop();
+                    current.interrupt();
                 }
             }
 
@@ -59,14 +59,14 @@ public class Boa extends Predator{
 
             if ((age > 10) && (this.hanger >= 3)) {
                 list.remove(current);
-                current.stop();
+                current.interrupt();
             }
 
             try {
                 Thread.sleep(Info.iterationTime);
             } catch (InterruptedException e) {
                 list.remove(current);
-                current.stop();
+                current.interrupt();
             }
             age++;
             if (hanger < 3) {

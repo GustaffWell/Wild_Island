@@ -41,7 +41,7 @@ public class Bear extends Predator {
                 Thread.sleep(5 * Info.iterationTime);
             } catch (InterruptedException e) {
                 list.remove(current);
-                current.stop();
+                current.interrupt();
             }
         }
         while(!current.isInterrupted()) {
@@ -51,7 +51,7 @@ public class Bear extends Predator {
             if (age >= 15) {
                 if (random.nextInt(100) <= (1 + 0.1 * age)) {
                     list.remove(current);
-                    current.stop();
+                    current.interrupt();
                 }
             }
 
@@ -60,14 +60,14 @@ public class Bear extends Predator {
 
             if ((age > 10) && (this.hanger >= 80)) {
                 list.remove(current);
-                current.stop();
+                current.interrupt();
             }
 
             try {
                 Thread.sleep(Info.iterationTime);
             } catch (InterruptedException e) {
                 list.remove(current);
-                current.stop();
+                current.interrupt();
             }
             age++;
             if (hanger < 80) {
