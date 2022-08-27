@@ -9,6 +9,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class Caterpillar extends Herbivore {
     private static ThreadLocalRandom random = ThreadLocalRandom.current();
 
+    public static int cageMaxCount = 1000;
     public Caterpillar (int i1, int j1) {
         this.i1 = i1;
         this.j1 = j1;
@@ -68,7 +69,7 @@ public class Caterpillar extends Herbivore {
                 AtomicInteger cageCount = new AtomicInteger(list.size());
 
                 for (int i = 0; i < cageCount.get(); i++) {
-                    if (cageCount.get() < 1000) {
+                    if (cageCount.get() < cageMaxCount) {
                         Caterpillar caterpillar = (Caterpillar) list.get(i);
                         if (caterpillar.sex != this.sex) {
                             Caterpillar caterpillar1 = new Caterpillar(this.i1, this.j1, true);
@@ -92,7 +93,7 @@ public class Caterpillar extends Herbivore {
             ArrayList<Thread> list = Island.field[i][j].get(4);
             int threadCount = list.size();
 
-            if (threadCount < 1000) {
+            if (threadCount < cageMaxCount) {
                 Caterpillar caterpillar = new Caterpillar(i, j);
                 list.add(caterpillar);
                 caterpillar.start();

@@ -8,6 +8,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class Mouse extends Herbivore {
     private static ThreadLocalRandom random = ThreadLocalRandom.current();
+    public static int cageMaxCount = 500;
 
     public Mouse (int i1, int j1) {
         this.i1 = i1;
@@ -86,7 +87,7 @@ public class Mouse extends Herbivore {
             AtomicInteger cageCount = new AtomicInteger(list.size());
 
             for (int i = 0; i < cageCount.get(); i++) {
-                if (cageCount.get() < 500) {
+                if (cageCount.get() < cageMaxCount) {
                     Mouse mouse = (Mouse) list.get(i);
                     if (mouse.sex != this.sex) {
                         Mouse mouse1 = new Mouse(this.i1, this.j1, true);
@@ -120,7 +121,7 @@ public class Mouse extends Herbivore {
             ArrayList<Thread> list = Island.field[i][j].get(5);
             int threadCount = list.size();
 
-            if (threadCount < 500) {
+            if (threadCount < cageMaxCount) {
                 Mouse mouse = new Mouse(i, j);
                 list.add(mouse);
                 mouse.start();

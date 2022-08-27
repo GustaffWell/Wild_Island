@@ -8,6 +8,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class Fox extends Predator{
     private static ThreadLocalRandom random = ThreadLocalRandom.current();
+    public static int cageMaxCount = 30;
 
     public Fox(int i1, int j1) {
         this.i1 = i1;
@@ -109,7 +110,7 @@ public class Fox extends Predator{
             AtomicInteger cageCount = new AtomicInteger(list.size());
 
             for (int i = 0; i < cageCount.get(); i++) {
-                if (cageCount.get() < 30) {
+                if (cageCount.get() < cageMaxCount) {
                     Fox fox = (Fox) list.get(i);
                     if (fox.sex != this.sex) {
                         Fox fox1 = new Fox(this.i1, this.j1, true);
@@ -132,7 +133,7 @@ public class Fox extends Predator{
             ArrayList<Thread> list = Island.field[i][j].get(13);
             int threadCount = list.size();
 
-            if (threadCount < 30) {
+            if (threadCount < cageMaxCount) {
                 Fox fox = new Fox(i, j);
                 list.add(fox);
                 fox.start();

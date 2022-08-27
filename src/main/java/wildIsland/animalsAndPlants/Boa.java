@@ -8,6 +8,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class Boa extends Predator{
     private static ThreadLocalRandom random = ThreadLocalRandom.current();
+    public static int cageMaxCount = 30;
 
     public Boa(int i1, int j1) {
         this.i1 = i1;
@@ -109,7 +110,7 @@ public class Boa extends Predator{
             AtomicInteger cageCount = new AtomicInteger(list.size());
 
             for (int i = 0; i < cageCount.get(); i++) {
-                if (cageCount.get() < 30) {
+                if (cageCount.get() < cageMaxCount) {
                     Boa boa = (Boa) list.get(i);
                     if (boa.sex != this.sex) {
                         Boa boa1 = new Boa(this.i1, this.j1, true);
@@ -132,7 +133,7 @@ public class Boa extends Predator{
             ArrayList<Thread> list = Island.field[i][j].get(12);
             int threadCount = list.size();
 
-            if (threadCount < 30) {
+            if (threadCount < cageMaxCount) {
                 Boa boa = new Boa(i, j);
                 list.add(boa);
                 boa.start();

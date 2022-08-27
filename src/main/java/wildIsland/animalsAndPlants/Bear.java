@@ -8,6 +8,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class Bear extends Predator {
     private static ThreadLocalRandom random = ThreadLocalRandom.current();
+    public static int cageMaxCount = 5;
+
 
     public Bear(int i1, int j1) {
         this.i1 = i1;
@@ -139,7 +141,7 @@ public class Bear extends Predator {
             AtomicInteger cageCount = new AtomicInteger(list.size());
 
             for (int i = 0; i < cageCount.get(); i++) {
-                if (cageCount.get() < 5) {
+                if (cageCount.get() < cageMaxCount) {
                     Bear bear = (Bear) list.get(i);
                     if (bear.sex != this.sex) {
                         Bear bear1 = new Bear(this.i1, this.j1, true);
@@ -162,7 +164,7 @@ public class Bear extends Predator {
             ArrayList<Thread> list = Island.field[i][j].get(14);
             int threadCount = list.size();
 
-            if (threadCount < 5) {
+            if (threadCount < cageMaxCount) {
                 Bear bear = new Bear(i, j);
                 list.add(bear);
                 bear.start();

@@ -8,6 +8,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class Rabbit extends Herbivore {
     private static ThreadLocalRandom random = ThreadLocalRandom.current();
+    public static int cageMaxCount = 150;
 
     public Rabbit (int i1, int j1) {
         this.i1 = i1;
@@ -87,7 +88,7 @@ public class Rabbit extends Herbivore {
             AtomicInteger cageCount = new AtomicInteger(list.size());
 
             for (int i = 0; i < cageCount.get(); i++) {
-                if (cageCount.get() < 150) {
+                if (cageCount.get() < cageMaxCount) {
                     Rabbit rabbit = (Rabbit) list.get(i);
                     if (rabbit.sex != this.sex) {
                         Rabbit rabbit1 = new Rabbit(this.i1, this.j1, true);
@@ -109,7 +110,7 @@ public class Rabbit extends Herbivore {
             ArrayList<Thread> list = Island.field[i][j].get(3);
             int threadCount = list.size();
 
-            if (threadCount < 150) {
+            if (threadCount < cageMaxCount) {
                 Rabbit rabbit = new Rabbit(i, j);
                 list.add(rabbit);
                 rabbit.start();

@@ -10,6 +10,7 @@ public class Plant extends Organic {
 
     private boolean isNewPlant = false;
     private static ThreadLocalRandom random = ThreadLocalRandom.current();
+    public static int cageMaxCount = 200;
     public int mass = 1;
     public int i1;
     public int j1;
@@ -66,7 +67,7 @@ public class Plant extends Organic {
             for (int k = 0; k < 2; k++) {
                 ArrayList<Thread> plantsList = Island.field[i][j].get(0);
                 AtomicInteger threadCount = new AtomicInteger(plantsList.size());
-                if (threadCount.get() < 200) {
+                if (threadCount.get() < cageMaxCount) {
                     Plant plant = new Plant(i, j, true);
                     plantsList.add(plant);
                     plant.start();
@@ -83,7 +84,7 @@ public class Plant extends Organic {
             ArrayList<Thread> plantsList = Island.field[i][j].get(0);
             int threadCount = plantsList.size();
 
-            if (threadCount < 200) {
+            if (threadCount < cageMaxCount) {
                 Plant plant = new Plant(i, j);
                 plantsList.add(plant);
                 plant.start();

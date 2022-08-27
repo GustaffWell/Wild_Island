@@ -8,6 +8,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class Buffalo extends Herbivore {
     private static ThreadLocalRandom random = ThreadLocalRandom.current();
+    public static int cageMaxCount = 10;
 
     public Buffalo (int i1, int j1) {
         this.i1 = i1;
@@ -88,7 +89,7 @@ public class Buffalo extends Herbivore {
             AtomicInteger cageCount = new AtomicInteger(list.size());
 
             for (int i = 0; i < cageCount.get(); i++) {
-                if (cageCount.get() < 10) {
+                if (cageCount.get() < cageMaxCount) {
                     Buffalo buffalo = (Buffalo) list.get(i);
                     if (buffalo.sex != this.sex) {
                         if (random.nextInt(2) == 0) {
@@ -112,7 +113,7 @@ public class Buffalo extends Herbivore {
             ArrayList<Thread> list = Island.field[i][j].get(9);
             int threadCount = list.size();
 
-            if (threadCount < 10) {
+            if (threadCount < cageMaxCount) {
                 Buffalo buffalo = new Buffalo(i, j);
                 list.add(buffalo);
                 buffalo.start();

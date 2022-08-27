@@ -8,6 +8,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class Eagle extends Predator{
     private static ThreadLocalRandom random = ThreadLocalRandom.current();
+    public static int cageMaxCount = 20;
 
     public Eagle(int i1, int j1) {
         this.i1 = i1;
@@ -109,7 +110,7 @@ public class Eagle extends Predator{
             AtomicInteger cageCount = new AtomicInteger(list.size());
 
             for (int i = 0; i < cageCount.get(); i++) {
-                if (cageCount.get() < 20) {
+                if (cageCount.get() < cageMaxCount) {
                     Eagle eagle = (Eagle) list.get(i);
                     if (eagle.sex != this.sex) {
                         Eagle eagle1 = new Eagle(this.i1, this.j1, true);
@@ -132,7 +133,7 @@ public class Eagle extends Predator{
             ArrayList<Thread> list = Island.field[i][j].get(15);
             int threadCount = list.size();
 
-            if (threadCount < 20) {
+            if (threadCount < cageMaxCount) {
                 Eagle eagle = new Eagle(i, j);
                 list.add(eagle);
                 eagle.start();
